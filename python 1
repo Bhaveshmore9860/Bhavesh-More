@@ -1,0 +1,132 @@
+from tkinter import *
+from tkinter import messagebox
+import ast
+
+## Colse Frist Window And Go On Login Page
+
+def closewindow():
+	window.destroy()
+	
+#####Login window----------------
+
+	root=Tk()
+	root.title('Login Page')
+	root.configure(bg="green")
+	root.geometry("925x500+300+200")
+	root.resizable(False,False)
+	
+	heading=Label(text='Login',fg="orangered",bg='green',font=('Microsoft Yahei UI Light ',23,'bold'))
+	heading.place(x=100,y=5)
+			
+	heading=Label(text='User ID',fg="orangered",bg='green',font=('Microsoft Yahei UI Light ',7,'bold'))
+	heading.place(x=8,y=155)
+	
+	user =Entry(width=23,border=0,bg='#fff',font=("Microsoft Yahei UI Light",10))
+	user.place(x=100,y=150)
+
+#Close Frist window And Go On Sing Up Page 
+
+def openwindow():
+	window.destroy()
+
+#####  Sing Up ------------------------------
+
+	win=Tk()
+	win.title('Sing Up Page')
+	win.configure(bg="#fff")
+	win.geometry("925x500+300+200")
+	win.resizable(False,False)
+	
+	heading=Label(text='Sing Up',fg="orangered",bg="#fff",font=("arial",23,'bold'))
+	heading.place(x=100,y=5)
+	
+
+	heading=Label(text='Full Name',fg="orangered",bg="#fff",font=("arial",5,'bold'))
+	heading.place(x=8,y=155)
+	
+	user =Entry(width=23,border=0,bg='#fff',font=("Microsoft Yahei UI Light",10))
+	user.place(x=100,y=150)
+	
+	
+     
+##### frist window Page ----------------------	
+	
+window = Tk()
+window.title("sing up")
+window.geometry("925x500+300+200")
+window.configure(bg='#fff')
+window.resizable(False,False)
+
+
+heading=Label(text='Sing Up',fg="Red",bg='white',font=('Microsoft Yahei UI Light ',23,'bold'))
+heading.place(x=950,y=5)
+
+##### For Show A Login  ------------------------------
+
+heading1=Label(text ='Already Account Cleck On Login Button',fg="#57a1f8",bg='white',font=('Microsoft Yahei UI Light ',7,'bold'))
+heading1.place(x=900,y=518)
+
+##### Comment -----------------------------------------
+
+heading2=Label(text ='Welcom To BHAVESH Coding Classes \n Please Login Here To Get More Information About Coding',fg="Orangered",bg='white',font=('Arial',7,'bold'))
+heading2.place(x=100,y=5)
+
+###After cleck On Usermane They are Erease
+
+def on_enter(e):
+	user.delete(0,'end')
+def on_leave(e):
+	if user.get()==' ':
+		user.insert(0,'Username')
+
+
+user =Entry(width=23,fg='green',border=0,bg='#57a1f8',font=("Microsoft Yahei UI Light",10))
+user.place(x=900,y=150)
+user.insert(0,'Username')
+user.bind("<FocusIn>",on_enter)
+user.bind("<FocusOut>",on_leave)
+
+#####   Similar to up Password #####
+
+def on_enter(e):
+      user.delete(0,'end')
+def on_leave(e):
+	if user.get()==' ':
+		user.insert(0,'Password')
+
+
+user =Entry(width=23,fg='green',border=0,bg='#57a1f8',font=("Microsoft Yahei UI Light",10))
+user.place(x=900,y=220)
+user.insert(0,'Password')
+user.bind("<FocusIn>",on_enter)
+user.bind("<FocusOut>",on_leave)
+
+#####   Similar To up Conform Password ###
+
+def on_enter(e):
+	user.delete(0,'end')
+def on_leave(e):
+	if user.get()==' ':
+		user.insert(0,'Conform Password')		
+				
+
+user =Entry(width=20,fg='green',border=0,bg='#57a1f8',font=("Microsoft Yahei UI Light",11))
+user.place(x=900,y=287)
+user.insert(0,'Conform Password')
+user.bind("<FocusIn>",on_enter)
+user.bind("<FocusOut>",on_leave)
+
+#####   Show Sing Up Button --------------------
+
+
+button=Button(text='Sing Up',fg="Orange",bg='white',bd=1,font=('Microsoft Yahei UI Light ',13,'bold'),command=openwindow)
+button.place(x=960,y=380)
+
+#####   Show Login Button --------------------------
+
+button =  Button(text='Login',fg="Orange",bg='white',bd=1,font=('Robot',9,'bold'),command=closewindow)
+button.place(x=1000,y=550)
+
+##### Main loop---------------------------
+
+window.mainloop()
